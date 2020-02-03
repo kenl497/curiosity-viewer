@@ -1,0 +1,48 @@
+.main {
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    background-color: lightgray;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    padding: 25px;
+
+    input:focus {
+      outline: none;
+    }
+
+    .filter {
+      .label {
+        font-weight: bold;
+        margin: 0 5px;
+      }
+
+      .control {
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+        border-radius: 5px;
+        min-height: 40px;
+        padding: 10px;
+        margin: 0 5px;
+
+        input {
+          border: 0;
+          width: 30px;
+        }
+      }
+    }
+  }
+
+  .body {
+    background-color: lightslategray;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    padding: 25px;
+    min-height: 500px;
+  }
+
+}

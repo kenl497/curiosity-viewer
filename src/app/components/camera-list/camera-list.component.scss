@@ -1,0 +1,10 @@
+.photos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .list {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+  }
+}

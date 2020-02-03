@@ -1,0 +1,26 @@
+:host {
+  display: flex;
+  flex-grow: 1;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  min-width: 200px;
+  max-width: 200px;
+  .title {
+    font-weight: bold;
+    min-height: 50px;
+  }
+  .main {
+    flex: 1 1 auto;
+  }
+}
+.label {
+  padding-bottom: 10px;
+}
+.image {
+  width:200px;
+}

@@ -1,0 +1,42 @@
+.select-camera {
+  display:flex;
+  flex-direction: row;
+  padding: 10px;
+  .selected {
+    padding-right: 10px;
+  }
+  .down {
+    min-width: 20px;
+    background-image: url(/assets/down.png);
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+  }
+
+}
+
+
+
+.list {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.75);
+  min-height: 100px;
+  padding: 20px;
+  position: absolute;
+  top: 225px;
+  left: 40px;
+  .list-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    button {
+      background: none!important;
+      border: none;
+      padding: 0!important;
+      color: green;
+    }
+  }
+}

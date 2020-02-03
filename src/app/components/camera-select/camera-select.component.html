@@ -1,0 +1,16 @@
+<div class="select-camera">
+  <div class="selected">{{activeCameraCount}} Selected </div>
+  <span class="down" (click)="toggleList()"></span>
+</div>
+<div *ngIf="showList" class="list">
+  <div class="list-header">
+    <div class="select-all"><button (click)="selectAll()">Select All</button></div>
+    <div class="clear"><button (click)="clear()">Clear</button></div>
+  </div>
+  <div *ngFor="let camera of cameras">
+    <label>
+      <input type="checkbox" [value]="camera.name" [checked]="camera.checked" (change)="onCheckboxChange($event)" />
+      {{camera.full_name}}
+    </label>
+  </div>
+</div>

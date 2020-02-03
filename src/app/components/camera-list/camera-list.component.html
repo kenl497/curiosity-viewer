@@ -1,0 +1,5 @@
+<div class="photos" *ngIf="cameras && photos">
+  <div class="list" *ngFor="let camera of activeCameras">
+    <app-camera-card [photos]="photos.photos" [camera]="camera"></app-camera-card>
+  </div>
+</div>
