@@ -15,7 +15,7 @@ export class CuriosityService {
   rover$ = this.http.get<any>(this.roverInfoUrl).pipe(catchError(this.handleError));
 
   getPhotos(sol: number) {
-    const photosUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol='+sol+'&api_key=DEMO_KEY';
+    const photosUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${sol}&api_key=DEMO_KEY`;
     //photosUrl = 'assets/photos.json';
     return this.http.get<any>(photosUrl).pipe(catchError(this.handleError));
   }
