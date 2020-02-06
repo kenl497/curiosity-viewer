@@ -22,3 +22,6 @@
     </div>
   </div>
 </div>
+<div class="alert-error" *ngIf="(errorMessage$ | async) as errorMessage">
+  <div>{{errorMessage}}</div>
+</div>

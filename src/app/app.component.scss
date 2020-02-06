@@ -46,3 +46,11 @@
   }
 
 }
+.alert-error {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  background-color: red;
+  color: white;
+
+}

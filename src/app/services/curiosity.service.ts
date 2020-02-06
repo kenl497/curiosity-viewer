@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
-import { catchError, shareReplay, tap } from 'rxjs/operators';
+import { Observable, of, throwError, BehaviorSubject, EMPTY } from 'rxjs';
+import { catchError, shareReplay, tap, mergeMap } from 'rxjs/operators';
+import { Params } from '../models/params';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +15,25 @@ export class CuriosityService {
   //roverInfoUrl = 'assets/rover.json';
   rover$ = this.http.get<any>(this.roverInfoUrl).pipe(catchError(this.handleError));
 
-  getPhotos(sol: number) {
+  private solUrlSubject = new BehaviorSubject<any>({});
+  private solUrlAction$ = this.solUrlSubject.asObservable();
+  photos$ = this.solUrlAction$.pipe(
+    mergeMap(param => {
+      if (param.url) {
+        return this.http.get<any>(param.url).pipe(
+          catchError(this.handleError)
+        );
+      }
+      return EMPTY;
+    })
+  );
+
+
+  setSol(sol: string) {
     const photosUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${sol}&api_key=DEMO_KEY`;
-    //photosUrl = 'assets/photos.json';
-    return this.http.get<any>(photosUrl).pipe(catchError(this.handleError));
+    //const photosUrl = 'assets/photos.json';
+
+    this.solUrlSubject.next({ url: photosUrl });
   }
 
   handleError(err) {
