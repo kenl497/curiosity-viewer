@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, throwError, BehaviorSubject, EMPTY } from 'rxjs';
-import { catchError, shareReplay, tap, mergeMap } from 'rxjs/operators';
-import { Params } from '../models/params';
+import { throwError, BehaviorSubject, EMPTY } from 'rxjs';
+import { catchError, mergeMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
